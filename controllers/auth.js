@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const  User = require("../db/models/user_model.js");
 const saltrounds = 10; //Work Factor
 JWT_SECRET = process.env.JWT_SECRET;
+const transporter = require('../config/node_mailer.js')
 
 
 async function register(req, res) {
@@ -44,6 +45,15 @@ async function register(req, res) {
         sameSite: process.env.NODE_ENV === "Production" ? "none" : "strict",
         maxAge: 1 * 24 * 60 * 1000,
       });
+
+      //Welcome Email to User - Nodemailer
+      const mail_options = {
+        from: process.env.Sender_email,
+        to: email,
+        subject: 'Welcome Message',
+        text: `Welcome to our website, your account has been created with email id: ${email}`
+      }
+      await transporter.sendMail(mail_options)
 
       return res.json({ success: true });
     });
