@@ -4,6 +4,7 @@ const { login } = require('../controllers/auth')
 const { logout } = require('../controllers/auth')
 const {sendVerifyOtp} = require('../controllers/auth')
 const {verifyEmail} = require('../controllers/auth')
+const{isauthenticated} =  require('../controllers/auth')
 const userauth_middleware = require('../middlewares/user_auth.js')
 const router = express.Router()
 
@@ -12,6 +13,7 @@ router.post('/login', login)
 router.post('/logout', logout) 
 router.post('/send-verify_otp', userauth_middleware,sendVerifyOtp) 
 router.post('/verify-account', userauth_middleware, verifyEmail ) 
+router.post('/isauthenticated', userauth_middleware, isauthenticated ) 
 
 
 module.exports = router

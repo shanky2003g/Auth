@@ -207,6 +207,17 @@ async function verifyEmail(req, res){
     }
 }
 
+async function isauthenticated(req, res) {
+    try{
+        return res.json({success: true})
+    }catch(error){
+        return res.json({
+            success: false,
+            message: error.message
+        })
+    }
+    
+}
 
 module.exports = {
     register,
@@ -214,4 +225,5 @@ module.exports = {
     logout,
     sendVerifyOtp,
     verifyEmail,
+    isauthenticated
 };
