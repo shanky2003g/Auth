@@ -8,10 +8,12 @@ const db = require('./db/index.js')
 const auth_router = require('./routes/auth_routes')
 const user_router = require('./routes/user_routes.js')
 
+const allowedOrigin = ['http://localhost:5173']
+
 //Middlewares
 app.use(cookie())
 app.use(express.json())
-app.use(cors())  
+app.use(cors({origin:allowedOrigin, credentials: true}))  
 
 
 //API Endpoints
