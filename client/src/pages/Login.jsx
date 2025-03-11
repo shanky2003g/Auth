@@ -122,7 +122,7 @@ const Login = () => {
             Forgot Password?
           </p>
           <button
-            className="w-full rounded-full py-2.5 
+            className=" cursor-pointer w-full rounded-full py-2.5 
           text-white font-medium bg-gradient-to-r from-indigo-500 to-indigo-900"
           >
             {state}

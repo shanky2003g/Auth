@@ -3,7 +3,7 @@ import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 
 const Header = () => {
-  console.log("header")
+  console.log("Header component re-rendered")
   const {userData} = useContext(AppContext)
   return (
     <div className="flex flex-col  items-center mt-20 px-4 text-center text-gray-800">
@@ -22,7 +22,7 @@ const Header = () => {
         Let's start with a quick product tour and we will have you up and
         running in no time!
       </p>
-      <button className="border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all">
+      <button className=" cursor-pointer border border-gray-500 rounded-full px-8 py-2.5 hover:bg-gray-100 transition-all">
         Get Started
       </button>
     </div>

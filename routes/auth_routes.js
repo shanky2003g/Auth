@@ -16,7 +16,7 @@ router.post('/login', login)
 router.post('/logout', logout) 
 router.post('/send-verify_otp', userauth_middleware,sendVerifyOtp) 
 router.post('/verify-account', userauth_middleware, verifyEmail ) 
-router.post('/isauthenticated', userauth_middleware, isauthenticated ) 
+router.get('/isauthenticated', userauth_middleware, isauthenticated ) 
 router.post('/reset_passwordOtp', password_resetOtp)
 router.post('/reset_password', change_password)
 
